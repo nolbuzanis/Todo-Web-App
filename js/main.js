@@ -1,16 +1,22 @@
 // Object to store data from html so the data does not get erased upon reload/ reboot
-data = {
+data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')): {
     todo: [],
     completed: []
 }
 
 window.onload = function() {
+    
+    if (data) {
     for (i=0; i<data.todo.length; i++) {
         addItemTodo(data.todo[i]);
     }
+}
+if (data) {
     for (i=0; i<data.completed.length; i++) {
         addItemCompleted(data.completed[i]);
     }
+
+}
 }
 
 // SVG Code for todo buttons
@@ -29,6 +35,8 @@ function removeItem() {
     else {
         data.completed.splice(data.completed.indexOf(item), 1);
     }
+
+    updateDataStorage();
 }
 
 function completeItem() {
@@ -55,6 +63,8 @@ function completeItem() {
         data.todo.push(value);
     }
     list.insertBefore(item, list.childNodes[0]);
+
+    updateDataStorage();
 }
 
 // Function creates a new todo item with the value in the input field
@@ -86,6 +96,8 @@ function addItemTodo(text) {
     div.appendChild(remove);
     item.appendChild(div);
     list.insertBefore(item, list.childNodes[0]);
+
+    updateDataStorage();
 }
 
 // When button is pressed, add new todo item if value is not null, i.e, false
@@ -100,6 +112,7 @@ document.getElementById('add').addEventListener('click', function() {
     else {
         console.log('Invalid Entry');
     }
+    updateDataStorage();
 });
 
 // When enter key is pressed:
@@ -110,10 +123,13 @@ document.getElementById('item').addEventListener('keypress', function(e) {
         data.todo.push(value);
         addItemTodo(value);
         document.getElementById('item').value = '';
+        
+        updateDataStorage();
     }
     else {
         console.log('Invalid Entry');
     }
+    
 }
 });
 
@@ -128,6 +144,8 @@ document.getElementById('deleteAll').addEventListener('click', function() {
         target.removeChild(target.childNodes[0]);
         data.completed.pop();
     }
+
+    updateDataStorage();
 });
 
 function addItemCompleted(text) {
@@ -158,4 +176,10 @@ function addItemCompleted(text) {
     div.appendChild(remove);
     item.appendChild(div);
     list.insertBefore(item, list.childNodes[0]);
+    
+    updateDataStorage();
+}
+
+function updateDataStorage() {
+    localStorage.setItem('todoList', JSON.stringify(data));
 }
