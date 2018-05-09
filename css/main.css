@@ -2,6 +2,7 @@
 
 body {
     background: rgb(247, 247, 247);
+    padding-top: 80px;
 }
 
 header {
@@ -59,13 +60,7 @@ header button svg path {
     fill: #3f95a0;
 }
 
-ul#todo {
-    position: relative;
-    top: 80px;
-    padding: 0 15px;
-}
-
-ul#completed {
+ul {
     padding: 0 15px;
 }
 
@@ -92,7 +87,7 @@ ul .buttons {
     margin-right: -20px;
 }
 
-ul li button {
+ul li button, #deleteAll {
     position: absolute;
     width: 30px;
     height: 30px;
@@ -114,7 +109,7 @@ button.complete svg{
     stroke: #3f95a0;
 }
 
-ul li button svg{
+button svg{
     position: absolute;
     width: 24px;
     height: 24px;
@@ -142,4 +137,17 @@ button.delete:hover svg{
     stroke: white;
     transition: 0.2s ease;
     
+}
+
+button.completeButton {
+    background: #3f95a0;
+}
+button.completeButton svg{
+    stroke: white;
+}
+
+#deleteAll {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
 }
