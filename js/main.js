@@ -3,6 +3,14 @@
 var completeSVG = '<svg fill="none" height="24" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="20 6 9 17 4 12"/></svg>';
 var deleteSVG = '<svg fill="none" height="24" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>';
 
+function removeItem() {
+    var item = this.parentNode.parentNode;
+    var parent = item.parentNode;
+
+    parent.removeChild(item);
+    
+}
+
 // Function creates a new todo item with the value in the input field
 
 function addItemTodo(text) {
@@ -19,6 +27,8 @@ function addItemTodo(text) {
     remove.classList.add('delete');
     remove.innerHTML = deleteSVG;
 
+    remove.addEventListener('click', removeItem);
+
     var div = document.createElement('div');
     div.classList.add('buttons');
 
@@ -27,6 +37,8 @@ function addItemTodo(text) {
     item.appendChild(div);
     list.insertBefore(item, list.childNodes[0]);
 }
+
+
 
 // WHen button is pressed, add new todo item if value is not null, i.e, false
 
