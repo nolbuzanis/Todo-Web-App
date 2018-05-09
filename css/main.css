@@ -170,10 +170,10 @@ ul#completed::before {
 }
 
 ul#todo:empty:after {
-    content: 'Give yourself something to do.';
+    content: 'Give yourself something to do!';
 }
 ul#completed:empty:after {
-    content: 'Still waiting for you to complete a task.';
+    content: 'You need to complete a task.';
 }
 
 ul:after {
