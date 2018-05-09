@@ -1,11 +1,10 @@
 // Object to store data from html so the data does not get erased upon reload/ reboot
 data = {
-    todo: ['hello', 'bye'],
-    completed: ['yo']
+    todo: [],
+    completed: []
 }
 
 window.onload = function() {
-    console.log(data);
     for (i=0; i<data.todo.length; i++) {
         addItemTodo(data.todo[i]);
     }
