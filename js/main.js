@@ -71,6 +71,7 @@ document.getElementById('add').addEventListener('click', function() {
     var value = document.getElementById('item').value;
     if (value) {
         addItemTodo(value);
+        document.getElementById('item').value = '';
     }
     else {
         console.log('Invalid Entry');
@@ -83,6 +84,7 @@ document.getElementById('item').addEventListener('keypress', function(e) {
     var value = document.getElementById('item').value;
     if (value) {
         addItemTodo(value);
+        document.getElementById('item').value = '';
     }
     else {
         console.log('Invalid Entry');
