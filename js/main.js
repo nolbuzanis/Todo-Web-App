@@ -7,10 +7,6 @@ function removeItem() {
     var parent = item.parentNode;
 
     parent.removeChild(item);
-
-    if (document.getElementById('completed').childNode) {
-        document.getElementById('separator').classList.toggle('invisible');
-    }
 }
 
 function completeItem() {
@@ -28,9 +24,6 @@ function completeItem() {
         console.log('Add to todo');
     }
     list.insertBefore(item, list.childNodes[0]);
-
-    
-
 }
 
 // Function creates a new todo item with the value in the input field
@@ -93,6 +86,10 @@ document.getElementById('item').addEventListener('keypress', function(e) {
 
 document.getElementById('deleteAll').addEventListener('click', function() {
     var target = document.getElementById('todo');
+    while(target.childNodes[0]) {
+        target.removeChild(target.childNodes[0]);
+    }
+    target = document.getElementById('completed');
     while(target.childNodes[0]) {
         target.removeChild(target.childNodes[0]);
     }
