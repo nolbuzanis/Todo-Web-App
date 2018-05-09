@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+    background: rgb(247, 247, 247);
+}
+
 header {
     width: 100%;
     box-sizing: border-box;
@@ -41,6 +45,7 @@ header button {
     top: 20px;
     right: 20px;
     appearance: none;
+    cursor: pointer;
 }
 header button svg {
     position: absolute;
