@@ -58,3 +58,80 @@ header button svg {
 header button svg path {
     fill: #3f95a0;
 }
+
+ul#todo {
+    position: relative;
+    top: 80px;
+    padding: 0 15px;
+}
+
+ul#completed {
+    padding: 0 15px;
+}
+
+ul li {
+    box-sizing: border-box;
+    padding: 10px 10px 10px 20px;
+    display: block;
+    background: white;
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: rgba(0,0,0,0.7);
+    box-shadow: rgba(0,0,0,0.3) 0px 2px 4px; 
+    font-weight: 700;
+}
+
+ul#todo li button {
+    position: absolute;
+    top: 5px;
+    float: right;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+button.delete {
+    right: 65px;
+    border: rgba(0,0,0,0.5) solid 1px;
+}
+button.delete svg{
+    stroke: rgba(0,0,0,0.5);
+}
+button.complete {
+    right: 25px;
+    border: #3f95a0 solid 1px;
+}
+button.complete svg{
+    stroke: #3f95a0;
+}
+
+ul#todo li button svg{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    margin: -12px 0 0 -12px;
+}
+
+button.complete:hover{
+    background: #3f95a0;
+    transition: 0.2s ease;
+}
+
+button.complete:hover svg{
+    stroke: white;
+    transition: 0.2s ease;
+}
+button.delete:hover{
+    border: rgb(182, 29, 29) solid 1px;
+    transition: 0.2s ease;
+}
+
+button.delete:hover svg{
+    stroke: rgb(182, 29, 29);
+    transition: 0.2s ease;
+}
