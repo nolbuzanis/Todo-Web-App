@@ -153,8 +153,22 @@ button.completeButton svg{
     bottom: 20px;
 }
 
-ul#completed:not(:empty) {
+ul#completed {
     opacity: 0.5;
-    padding-top: 20px;
+    padding-top: 60px;
+    position: relative;
 }
+
+ul#completed::before {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 1px;
+    background: rgba(0,0,0,0.5);
+    left: 50%;
+    top: 43px;
+    margin: 0 0 0 -80px;
+    
+}
+
 
