@@ -1,7 +1,17 @@
 // Object to store data from html so the data does not get erased upon reload/ reboot
 data = {
-    todo: [],
-    completed: []
+    todo: ['hello', 'bye'],
+    completed: ['yo']
+}
+
+window.onload = function() {
+    console.log(data);
+    for (i=0; i<data.todo.length; i++) {
+        addItemTodo(data.todo[i]);
+    }
+    for (i=0; i<data.completed.length; i++) {
+        addItemCompleted(data.completed[i]);
+    }
 }
 
 // SVG Code for todo buttons
@@ -13,6 +23,13 @@ function removeItem() {
     var parent = item.parentNode;
 
     parent.removeChild(item);
+
+    if (parent.id === 'todo' ){
+        data.todo.splice(data.todo.indexOf(item), 1);
+    }
+    else {
+        data.completed.splice(data.completed.indexOf(item), 1);
+    }
 }
 
 function completeItem() {
@@ -20,14 +37,23 @@ function completeItem() {
     var item = this.parentNode.parentNode;
     var parent = item.parentNode;
     
+    var value = item.innerText;
+
     var list;
     if (parent.id === 'todo' ){
-        console.log('Add to completed');
+        
         list = document.getElementById('completed');
+
+        //Move item from todo array to completed array in data object
+        data.todo.splice(data.todo.indexOf(value), 1);
+        data.completed.push(value);
     }
     else {
         list = document.getElementById('todo');
-        console.log('Add to todo');
+        
+        //Move item from completed array to todo array in data object
+        data.completed.splice(data.completed.indexOf(value), 1);
+        data.todo.push(value);
     }
     list.insertBefore(item, list.childNodes[0]);
 }
@@ -63,13 +89,12 @@ function addItemTodo(text) {
     list.insertBefore(item, list.childNodes[0]);
 }
 
-
-
 // When button is pressed, add new todo item if value is not null, i.e, false
 
 document.getElementById('add').addEventListener('click', function() {
     var value = document.getElementById('item').value;
     if (value) {
+        data.todo.push(value);
         addItemTodo(value);
         document.getElementById('item').value = '';
     }
@@ -83,6 +108,7 @@ document.getElementById('item').addEventListener('keypress', function(e) {
     if (e.keyCode == 13) {
     var value = document.getElementById('item').value;
     if (value) {
+        data.todo.push(value);
         addItemTodo(value);
         document.getElementById('item').value = '';
     }
@@ -96,10 +122,41 @@ document.getElementById('deleteAll').addEventListener('click', function() {
     var target = document.getElementById('todo');
     while(target.childNodes[0]) {
         target.removeChild(target.childNodes[0]);
+        data.todo.pop();
     }
     target = document.getElementById('completed');
     while(target.childNodes[0]) {
         target.removeChild(target.childNodes[0]);
+        data.completed.pop();
     }
 });
 
+function addItemCompleted(text) {
+    var list = document.getElementById('completed');
+
+    var item = document.createElement('li');
+    item.innerHTML = text;
+
+    var complete = document.createElement('button');
+    complete.classList.add('complete');
+    complete.classList.toggle('completeButton');
+    complete.innerHTML = completeSVG;
+
+    var remove = document.createElement('button');
+    remove.classList.add('delete');
+    remove.innerHTML = deleteSVG;
+
+    // Click event for removing item
+    remove.addEventListener('click', removeItem);
+
+    // Click event for completing an item
+    complete.addEventListener('click', completeItem);
+
+    var div = document.createElement('div');
+    div.classList.add('buttons');
+
+    div.appendChild(complete);
+    div.appendChild(remove);
+    item.appendChild(div);
+    list.insertBefore(item, list.childNodes[0]);
+}
