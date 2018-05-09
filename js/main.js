@@ -19,9 +19,13 @@ function addItemTodo(text) {
     remove.classList.add('delete');
     remove.innerHTML = deleteSVG;
 
-    item.appendChild(complete);
-    item.appendChild(remove);
-    list.appendChild(item);
+    var div = document.createElement('div');
+    div.classList.add('buttons');
+
+    div.appendChild(complete);
+    div.appendChild(remove);
+    item.appendChild(div);
+    list.insertBefore(item, list.childNodes[0]);
 }
 
 // WHen button is pressed, add new todo item if value is not null, i.e, false

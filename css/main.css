@@ -84,10 +84,16 @@ ul li {
     font-weight: 700;
 }
 
-ul#todo li button {
-    position: absolute;
-    top: 5px;
+ul .buttons {
+    display: block;
     float: right;
+    position: relative;
+    margin-top: -5px;
+    margin-right: -20px;
+}
+
+ul li button {
+    position: absolute;
     width: 30px;
     height: 30px;
     border-radius: 15px;
@@ -108,7 +114,7 @@ button.complete svg{
     stroke: #3f95a0;
 }
 
-ul#todo li button svg{
+ul li button svg{
     position: absolute;
     width: 24px;
     height: 24px;
@@ -128,10 +134,12 @@ button.complete:hover svg{
 }
 button.delete:hover{
     border: rgb(182, 29, 29) solid 1px;
+    background: rgb(182, 29, 29);
     transition: 0.2s ease;
 }
 
 button.delete:hover svg{
-    stroke: rgb(182, 29, 29);
+    stroke: white;
     transition: 0.2s ease;
+    
 }
