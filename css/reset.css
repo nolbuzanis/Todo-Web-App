@@ -55,7 +55,13 @@ button, input {
     -moz-appearance: none;
     -ms-appearance: none;
     -o-appearance: none;
-    appearance: none;
+	appearance: none;
+	border:none;
+	background-image:none;
+	background-color:transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
 
 input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -81,3 +87,4 @@ textarea:focus,
 button:focus {
     outline: none;
 }
+

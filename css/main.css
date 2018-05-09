@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+header {
+    width: 100%;
+    box-sizing: border-box;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #3f95a0;
+    color: white;
+    box-shadow: #3f95a075 0px 2px 4px;
+    padding: 20px;
+}
+header input[type='text']{
+    box-sizing: border-box;
+    width: 100%;
+    float: left;
+    height: 40px;
+    color: black;
+    border-radius: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: #77ceda;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    margin: 0;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 50px;
+    color: white;
+}
+header button {
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    appearance: none;
+}
+header button svg {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    left: 50%;
+    margin: -16px 0 0 -16px;
+}
+header button svg path {
+    fill: #3f95a0;
+}
