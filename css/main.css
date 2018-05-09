@@ -154,7 +154,6 @@ button.completeButton svg{
 }
 
 ul#completed {
-    opacity: 0.5;
     padding-top: 60px;
     position: relative;
 }
@@ -168,7 +167,22 @@ ul#completed::before {
     left: 50%;
     top: 43px;
     margin: 0 0 0 -80px;
-    
+}
+
+ul#todo:empty:after {
+    content: 'Give yourself something to do.';
+}
+ul#completed:empty:after {
+    content: 'Still waiting for you to complete a task.';
+}
+
+ul:after {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 20px;
+    color: #aaa;
 }
 
 
