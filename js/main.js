@@ -7,6 +7,10 @@ function removeItem() {
     var parent = item.parentNode;
 
     parent.removeChild(item);
+
+    if (document.getElementById('completed').childNode) {
+        document.getElementById('separator').classList.toggle('invisible');
+    }
 }
 
 function completeItem() {
@@ -25,7 +29,8 @@ function completeItem() {
     }
     list.insertBefore(item, list.childNodes[0]);
 
-    parent.removeChild(item);
+    
+
 }
 
 // Function creates a new todo item with the value in the input field
@@ -92,3 +97,4 @@ document.getElementById('deleteAll').addEventListener('click', function() {
         target.removeChild(target.childNodes[0]);
     }
 });
+

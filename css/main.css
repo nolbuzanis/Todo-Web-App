@@ -16,6 +16,7 @@ header {
     color: white;
     box-shadow: #3f95a075 0px 2px 4px;
     padding: 20px;
+    z-index: 5;
 }
 header input[type='text']{
     box-sizing: border-box;
@@ -147,7 +148,13 @@ button.completeButton svg{
 }
 
 #deleteAll {
-    position: absolute;
+    position: fixed;
     right: 20px;
     bottom: 20px;
 }
+
+ul#completed:not(:empty) {
+    opacity: 0.5;
+    padding-top: 20px;
+}
+
