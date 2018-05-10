@@ -6,6 +6,7 @@ data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('tod
 
 window.onload = function() {
     
+    
     if (data) {
     for (i=0; i<data.todo.length; i++) {
         addItemTodo(data.todo[i]);
@@ -112,7 +113,6 @@ document.getElementById('add').addEventListener('click', function() {
     else {
         console.log('Invalid Entry');
     }
-    updateDataStorage();
 });
 
 // When enter key is pressed:
